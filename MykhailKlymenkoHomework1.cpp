@@ -52,8 +52,8 @@ int main() {
 
         std::cout << "D = " << D << '\n';
         std::cout << "This equation has 2 roots x1 and x2:" << '\n';
-        float x1 = static_cast<float>((-b) + sqrt(D)) / (val2 * a);
-        float x2 = static_cast<float>((-b) - sqrt(D)) / (val2 * a);
+        auto x1{ static_cast<float>((-b) + sqrt(D)) / (val2 * a) };
+        auto x2{ static_cast<float>((-b) - sqrt(D)) / (val2 * a) };
         std::cout << "x1 = " << x1 << '\n';
         std::cout << "x2 = " << x2 << '\n';
 
@@ -65,7 +65,7 @@ int main() {
         std::cout << "D = " << D << '\n';
         std::cout << "The discriminant equals '0'. Regarding this, the equation "
             "has only one root!\n";
-        float x = static_cast<float>(-(b)) / (val2 * a);
+        auto x{ static_cast<float>(-(b)) / (val2 * a) };
         std::cout << "x = " << x << '\n';
 
         return 0;
