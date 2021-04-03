@@ -6,7 +6,7 @@ int main() {
     int number{};
     std::cout << "Enter a number: ";
     std::cin >> number;
-    size_t count{0};
+    size_t count{ 0 };
     while (number != 0) {
         count += number & 1;
         number >>= 1;
