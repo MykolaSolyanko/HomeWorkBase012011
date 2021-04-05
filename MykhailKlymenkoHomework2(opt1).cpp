@@ -4,7 +4,7 @@
 
 int main() {
     int rows{}, i{}, j{}, space{};
-
+    std::cout << "This program builds a fir-tree" << std::endl;
     std::cout << "Enter number of rows: ";
     std::cin >> rows;
 
@@ -14,7 +14,8 @@ int main() {
             std::cout << " ";
         }
         // for loop to display star equal to row number
-        for (j = 1; j <= (2 * i - 1); j++) {
+        const int fillStars{ 2 * i - 1 };
+        for (j = 1; j <= fillStars; j++) {
             std::cout << "*";
         }
 
