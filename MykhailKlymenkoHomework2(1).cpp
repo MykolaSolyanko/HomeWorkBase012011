@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Enter your number: ";
+    std::cout << "This program calculates sum and average of numbers. Please, enter your number: ";
     int number{};
     std::cin >> number;
 
@@ -25,3 +25,4 @@ int main() {
 
     return 0;
 }
+
