@@ -19,7 +19,7 @@ int main() {
     constexpr int minNumber{ -60 }, maxNumber{ 90 };
     std::cout << "Enter your numbers:\n ";
 
-    int sum{ 0 }, counter{ 1 };
+    int sum{}, counter{ 1 };
 
     while (counter <= quantity) {
 
@@ -41,3 +41,4 @@ int main() {
 
     return 0;
 }
+
