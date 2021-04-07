@@ -1,3 +1,4 @@
+//lacky ticket
 #include <iostream>
 
 int main() {
@@ -7,19 +8,21 @@ int main() {
   constexpr int MinNum{100000}, MaxNum{999999};
   while (TicketNumber < MinNum || TicketNumber > MaxNum) {
     std::cout << "\nThe ticket goes abroad!!" << std::endl;
+    std::cin >> TicketNumber;
+
   }
 
-  int tmp1{}, tmp2{}, i{};
+  int i{}, sum1{}, sum2{};
 
   for (i = 0; i < 3; i++) {
-    tmp1 += TicketNumber % 10;
+    sum1 += TicketNumber % 10;
     TicketNumber /= 10;
   }
   for (i = 0; i < 3; i++) {
-    tmp2 += TicketNumber % 10;
+    sum2 += TicketNumber % 10;
     TicketNumber /= 10;
   }
-  if (tmp1 == tmp2)
+  if (sum1 == sum2)
     std::cout << "It's a lucky ticket" << std::endl;
   else
     std::cout << "This ticket is not lucky" << std::endl;
