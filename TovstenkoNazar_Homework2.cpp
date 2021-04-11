@@ -15,13 +15,14 @@ void SumAndAverage(int number)
 void LuckyTicket(int number)
 {
 	constexpr int limit{ 6 };
+	constexpr int limit2{ 3 };
+
 	int digits{};
 	int sum1{};
 	int sum2{};
 
 	while (number != 0)
 	{
-		constexpr int limit2{ 3 };
 		digits++;
 		if (digits <= limit2)
 		{
@@ -67,14 +68,18 @@ void SumOfOdd(int quantity)
 	int number{};
 	int sum{};
 	std::cout << "Enter " << quantity << " numbers" << std::endl;
-	for (int i{}; i < quantity; i++)
+	for (int i = 0; i < quantity; i++)
 	{
 		std::cin >> number;
 		std::cout << number << std::endl;
-		if ((LowLimit <= number <= HighLimit) && (number % 2 != 0))
+		if (number >= LowLimit &&  number <= HighLimit)
 		{
-			sum += number;
+			if (number % 2 == 1)
+				sum += number;
 		}	
+		else {
+			std::cout << "Incorect input, out of limits" << std::endl;
+		}
 	}
 	std::cout << "Sum = " << sum << std::endl;
 }
@@ -91,18 +96,18 @@ int BestDividerHelp(int number)
 }
 void BestDivider(int number)
 {
-	for (int i = 1; i <= number; i++)
+	int sumOfDigits{ BestDividerHelp(number) };	
+	for (int divider = 1; divider <= number; divider++)
 	{
-		int divider{ number % i };
-		if ( divider == 0 && i > BestDividerHelp(number))
+		if (divider > sumOfDigits && number % divider == 0)
 		{
-			std::cout << "Divider = " << i << std::endl;
+			std::cout << "Divider = " << divider << std::endl;
 			break;
 		}
 	}
 }
 
-void AmoutOfSetBits(int number)
+void AmoutOfSetBits(unsigned int number)
 {
 	int counter{};
 	while (number != 0)
@@ -115,15 +120,8 @@ void AmoutOfSetBits(int number)
 
 void IsSetBit(unsigned int number, unsigned int bit)
 {
-	number >>= bit - 1;
-	if ((number & 1) == 1)
-	{
-		std::cout << "Yes" << std::endl;
-	}
-	else
-	{
-		std::cout << "No" << std::endl;
-	}
+	number >>= (bit - 1);
+	std::cout << ((number & 1)? "Yes" : "No") << std::endl;
 }
 
 int main()
@@ -190,7 +188,7 @@ int main()
 			{
 				std::cout << "Amout of set up bits" << std::endl;
 				std::cout << "Enter number" << std::endl;
-				int number{};
+				unsigned int number{};
 				std::cin >> number;
 				AmoutOfSetBits(number);
 				break;
